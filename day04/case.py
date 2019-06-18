@@ -54,3 +54,5 @@
 # location = input("请输入地点：")
 # hobby = input("请输入爱好")
 # print("敬爱可亲的{}最喜欢在{}{}".format(name, location, hobby))
+
+a = 1
