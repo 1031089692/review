@@ -39,3 +39,26 @@
 lst2 = ["鱼", "肉", "鸡", "鸭", "兔"]
 for i in lst2:
     print(i)
+
+
+# 相关操作
+c = lst2.count("鱼")  # 查询出现的次数
+
+
+lst3 = [1, 2, 3, 2, 1, 7, 2, 724, 8, 1, 88, 23]
+print(lst3.sort())  # 排序，默认升序，reverse=True 降序
+print(lst3.reverse())  # 翻转
+
+
+
+
+
+
+
+
+
+
+
+
+
+
