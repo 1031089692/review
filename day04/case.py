@@ -50,9 +50,8 @@
 # print("大写字母有%s" % daxie, "小写字母有%s" % xiaoxie, "数字有%s" % shuzi, "其他有%s" % other)
 
 # format简单应用
-# name = input("请输入你的名字：")
-# location = input("请输入地点：")
-# hobby = input("请输入爱好")
-# print("敬爱可亲的{}最喜欢在{}{}".format(name, location, hobby))
+name = input("请输入你的名字：")
+location = input("请输入地点：")
+hobby = input("请输入爱好")
+print("敬爱可亲的{}最喜欢在{}{}".format(name, location, hobby))
 
-a = 1
