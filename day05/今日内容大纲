@@ -3,3 +3,39 @@
         dict 用{}来表示   键值对数据 {key:value} key唯一性
 
         键必须都是可哈希的。如列表就不行。
+
+        值 没有任何限制
+
+    2、增删改查
+        增：
+            dic[key] = value    强制插入，如果有已存在的key，则强制替换。
+            dic.setdefault(key,value)  如果键在字典中存在，则不进行任何操作，否则就添加。还可以通过key进行查询
+
+        删：
+            pop(key)   有返回值，返回的是被删除的value。
+            del dic[key]
+            popitem()     随机删除
+            clear()    清空
+
+        改：
+            dic[key] = value
+            dic.update(字典)
+
+        查：
+            dic.get(key)  查不到返回None
+            dic(key)  查不到报错keyError
+            for循环
+            setdefault(key)
+
+
+    3、字典的其他操作：
+        keys 获取到所有的键存在一个高仿的列表中
+        values 获取所有的值存在一个高仿的列表中
+        items 获取所有的键值对已元祖的形式存在一个高仿的列表中
+
+        解构：
+            a,b = 1,2
+            a,b = (1,2)
+            a,b = [1, 2]
+
+    4、字典的嵌套
