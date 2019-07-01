@@ -1,4 +1,71 @@
 今日主要内容：
     1、函数名的应用(第一类对象)
+        函数的命明规范和变量是一样的
+        函数名其实就是变量名
+        可以作为列表中的元素进行存储
+        def func1():
+            pass
+        def func2():
+            pass
+        lst = [func1,func2]
+        for el in lst:
+            el()
+        可以作为参数传递给函数
+        def func():
+            pass
+        def proxy(fn):
+            fn()
+        proxy(func)
+        可以作为函数的返回值
+        def func():
+            def inner():
+                pass
+            return inner
+        func()()
     2、闭包
+        闭包:在内层函数中访问外层函数的局部变量
+        好处:
+            1、保护你的变量不受外界影响
+            2、可以让变量常驻内容
+        写法:
+            def outer():
+                a = 10
+                def inner():
+                    print(a)
+                return inner
+            正确使用姿势:
+                def outer():
+                    a = 10 # 假设是一个很耗时的东西
+                    def inner():
+                        print(a)
+                    return inner
+                outer()()
+                outer()()   ---错误使用姿势
+                --------------
+                ret = outer()
+                ret()
+                ret()    -----正确使用姿势
     3、迭代器
+        使用dir来查看该数据包含了哪些方法
+        用来遍历列表，字符串，元祖...可迭代对象
+        可迭代对象:Iterable,里面有__iter__(),没有__next__()
+        迭代器:Iterator,里面有__iter__(),还有__next__()
+
+        迭代器特点:
+            1、只能向前
+            2、惰性机制
+            3、省内存(生成器)
+
+        for循环的内部机制
+            1、首先获取到迭代器
+            2、使用while循环获取数据
+            3、it.__next__()来获取数据
+            4、处理异常try:xxx except StopIteration:
+
+            it = xx.__iter__()
+            while 1:
+                try:
+                    data = it.__next__()
+                    xxxxxx
+                except StopIteration:
+                    break
