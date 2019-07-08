@@ -24,7 +24,7 @@ lst3[4].append("玩转python")
 # 深入理解深拷贝。需先引入copy模块
 import copy
 lst5 = ["java", "golang", "php", "JavaScript", ["python核心编程", "python入门", "python深入浅出"]]
-lst6 = copy.deepcopy(lst5)   # 对lst3进行浅拷贝。生成lst4。
+lst6 = copy.deepcopy(lst5)   # 对lst3进行深拷贝。生成lst4。
 lst5[4].append("玩转python")
 print(lst5)
 print(lst6)

@@ -41,6 +41,6 @@ dic = {"xx": "xx", "名字": "刘强", "年龄": "23", "性别": "男", "爱好"
 
 
 # 解构(解包)
-a, b = (1, 2)  # 将后面解构打开按位置赋值给变量，支持str、list、tuple
-print(a)
-print(b)
+# a, b = (1, 2)  # 将后面解构打开按位置赋值给变量，支持str、list、tuple
+# print(a)
+# print(b)
