@@ -15,7 +15,7 @@ def parsePage(s):
             "id": i.group("id"),
             "title": i.group("title"),
             "rating_num": i.group("rating_num"),
-            "comment_nunm": i.group("comment_num")
+            "comment_num": i.group("comment_num")
         }
 
 
