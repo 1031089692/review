@@ -1,12 +1,12 @@
 # coding:utf-8
 
 import re
-# s = '<a>wahaha</a>'
-# ret = re.search('<(\w+)>(\w+)</(\w+)>',s)
-# print(ret.group())  # 所有的结果
-# print(ret.group(1))
-# print(ret.group(2))
-# print(ret.group(3))
+s = '<a>wahaha</a>'
+ret = re.search('<(\w+)>(\w+)</(\w+)>',s)
+print(ret.group())  # 所有的结果
+print(ret.group(1))
+print(ret.group(2))
+print(ret.group(3))
 
 # findall
 # python正则的默认分组优先和取消分组优先：(这个和正则本身无关)

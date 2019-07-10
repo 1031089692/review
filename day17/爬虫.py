@@ -19,10 +19,10 @@ def parsePage(s):
         }
 
 
-def main(num):
+def main(num):  # 这个函数执行10次，每次爬取一页的内容
     url = 'https://movie.douban.com/top250?start=%s&filter=' %num
     response_html = getPage(url)
-    ret = parsePage(response_html)
+    ret = parsePage(response_html)  # ret就是生成器
     print(ret)
     f = open("move_info7", "a", encoding="utf8")
 
@@ -30,6 +30,7 @@ def main(num):
         print(obj)
         data = str(obj)
         f.write(data + "\n")
+    f.close()
 
 
 com = re.compile(
