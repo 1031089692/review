@@ -19,13 +19,13 @@ import re
 
 # 字符串处理的扩展
 # split 切割
-# s = 'john23faker27chuang50'
-# ret3 = re.split('\d+',s)
-# print(ret3)
+s = 'john23faker27chuang50'
+ret3 = re.split('\d+',s)
+print(ret3)
 #
-# # sub替换 (正则，替换的结果，需要替换的内容，替换的次数)
-# ret4 = re.sub('\d+', 'H', 'john23faker27chuang50', 1)
-# print(ret4)
+# sub替换 (正则，替换的结果，需要替换的内容，替换的次数)
+ret4 = re.sub('\d+', 'H', 'john23faker27chuang50', 1)
+print(ret4)
 
 # subn 返回一个元祖，第二个元素是替换的次数
 
