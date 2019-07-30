@@ -13,7 +13,7 @@ while True:
         6.f6
     """)
     val = input("请输入要执行的函数：")
-    if hasattr(handler, val):
+    if hasattr(handler, val):    # 判断是否输入正常
         func_or_val = getattr(handler, val)  # 根据字符串为参数，去模块中寻找与之同名的成员
         if isinstance(func_or_val, FunctionType):
             func_or_val()
