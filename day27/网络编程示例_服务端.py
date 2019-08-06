@@ -1,14 +1,12 @@
 # coding:utf-8
 import socket
-
-
 # 创建socket对象
 server = socket.socket()
 
 # 绑定IP和端口
-server.bind(('192.168.0.186', 8000))
+server.bind(('127.0.0.1', 8000))
 
-# 后面可以等5个人
+# 连接数
 server.listen(5)
 
 # 等待客户端来连接，如果没人来就等待
