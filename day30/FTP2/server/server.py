@@ -26,7 +26,6 @@ while True:
         md5 = hashlib.md5()
 
 
-
         # 循环接收文件
         with open("put/"+filename, "wb") as f:
             recv_data_length = 0
