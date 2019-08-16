@@ -1,17 +1,16 @@
 # coding:utf-8
 import threading
 
-# ##################线程的基本使用########################
+##################线程的基本使用########################
+
+def func(arg):
+    print(arg)
 
 
-# def func(arg):
-#     print(arg)
-#
-#
-# t = threading.Thread(target=func, args=(11,))
-# t.start()
-#
-# print(123)
+t = threading.Thread(target=func, args=(11,))
+t.start()
+
+print(123)
 
 
 #########################################################
@@ -82,10 +81,10 @@ join() 可以控制主线程等待子线程(最多等待时间)
 start的本质不是开始运行线程，而是通知cpu可以进行调度。所以在cpu非空闲状态时，下面例子
 可能会先打印123。
 '''
-def func(arg):
-    print(arg)
-
-
-t1 = threading.Thread(target=func, args=(3,))
-t1.start()
-print(123)
+# def func(arg):
+#     print(arg)
+#
+#
+# t1 = threading.Thread(target=func, args=(3,))
+# t1.start()
+# print(123)
