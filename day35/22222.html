@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            text-align: center;
+            font-size: 30px;
+            line-height: 200px;
+            width: 700px;
+            margin: 100px auto;
+            height: 200px;
+            color: wheat;
+            border-radius: 30px;
+            background-color: #abc;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        var y = new Date('2019-12-25 00:00:00');
+
+        function shijian() {
+            var x = new Date();
+            var z = y.getTime() - x.getTime();
+
+            var box = document.getElementById('box');
+            var day = parseInt(z / 1000 / 60 / 60 / 24);
+            var hour = parseInt(z / 1000 / 60 / 60 % 24);
+            var min = parseInt(z / 1000 / 60 % 60);
+            var sec = parseInt(z / 1000 % 60);
+            box.innerText = '距离放假还有' +addZero( day) + '天' + addZero(hour) + '小时' + addZero(min) + '分钟' + addZero(sec) + '秒';
+        }
+        function addZero(a) {
+            return a < 10 ? '0' + a : a;
+        }
+        shijian();
+        setInterval(shijian,1000);
+    </script>
+</body>
+
+</html>

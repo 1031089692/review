@@ -4,7 +4,6 @@ monkey.patch_all()  # 下面代码中遇到IO都会自动执行greenlet的switch
 import requests
 import gevent
 
-
 def get_page_1(url):
     ret = requests.get(url)
     print(url, ret.content)
@@ -18,7 +17,6 @@ def get_page_2(url):
 def get_page_3(url):
     ret = requests.get(url)
     print(url, ret.content)
-
 
 gevent.joinall([
     gevent.spawn(get_page_1, 'https://www.python.org/'),  # 协程1
