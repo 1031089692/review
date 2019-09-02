@@ -1,0 +1,65 @@
+html标签 特征：
+    1、空白折叠现象
+    2、对空格和换行不敏感
+    3、标签要严格封闭
+    4、p标签的嵌套
+
+html中
+    1、行内标签
+        1、在一行内显示 span strong em i del a
+        2、不能设置宽高。默认的宽和高 是内容填充
+        #行内块标签  img input
+            1、在一行内显示
+            2、可以设置宽和高
+
+    2、块级标签 div p h1～h6
+        1、独占一行
+        2、可以设置宽高，如果不设置宽高。默认的宽是父元素的100%。高度是内容的高度。
+    p标签只能放文本、图片、表单元素，不能放其他元素。
+
+
+
+标签
+    a:
+        1、超链接
+            href 超链接的地址
+            target _self 默认在当前页面打开链接地址
+                   _blank 重新打开一个页面打开链接地址
+        2、标签内部跳转
+            默认有点击行为，可以使用Javascript:void(0); 阻止a标签的默认点击行为
+
+    img:
+        src 链接的图片资源
+        alt 图片资源加载失败，显示的文本
+
+    ul\ol\dl
+        ul
+            li
+
+    table border = '1' style = "border-collapse:collapse;"
+        tr 表格行
+        td 表格描述
+
+    form
+        HTTP协议
+        action:提交的服务器网址
+        method:get(默认)| post(应用:登陆注册、上传文件)
+        页面中的a img link 默认是get请求
+
+    input
+        type：
+            text 文本输入框
+            password 密码输入框
+            file 文件按钮 提交用post 一般要给form标签添加Enctype='multipart/form-data'
+            submit 提交按钮
+            button 普通按钮
+        name 提交到服务器端的kay
+        value 显示的本文内容，与服务器端的value
+        placeholder 文本代替
+
+    label
+        for 是与下面的某个表单控件的id属性进行关联
+
+    BS交互
+        1、form表单默认与服务器进行交互
+        2、ajax
