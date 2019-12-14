@@ -1,0 +1,20 @@
+文件上传相关:
+    pass
+
+
+批量插入数据：
+    低效率：
+    for i in range(100):
+        Order.objects.create(xx=xx,xx=xx)
+    高效率：
+    order_list = []
+    for i in range(100):
+        order = Order(xx=xx, xx=xx)
+        order_list.append(order)
+    Order.objects.bulk_create(order_list)
+
+
+csfr跨域：
+    1、倒入cookie.js文件
+    2、在headers里面加入:
+        "X-CSRFToken":$.ccokie('csrftoken')

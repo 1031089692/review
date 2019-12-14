@@ -1,0 +1,72 @@
+今日内容大纲：
+
+cookie session
+
+    之前认知错误：
+        例子1：
+            1、用户a登陆。session表存储一个对应数据。
+            2、然后重开一个登陆界面。登陆b账号
+        之前的认知：
+            以为会在数据库重新插入一条b的记录。
+        正确姿势：
+            已session id为维度的。会把之前a的数据update掉。而不是新增一条b的记录。
+        ------这个要记一下。
+
+
+        例子2：
+            1、用户a在google游览器登陆，session表存储一个对应数据。
+            2、用户a在Firefox游览器用同一账号再次登陆，
+        之前的认知：
+            会直接取之前那条。
+        目前看来正确的姿势：
+            在Firefox重新登陆的时候会重新插入一条数据。id不一样，存的数据一样。可以两端正常登陆
+        -------这个应该涉及到是否支持多端登陆的问题。后面查查
+
+
+jquery复习：
+    1、选择器：
+        基本选择器    $("#ID名")  $(".class名")  $("标签名")
+        组合选择器    $(".class名 标签名") ----后代选择器。查询所有某class名里面的某标签，不限制层级
+                     $(".class名>标签名") -----子代选择器。查询所有某class名里面第一层的某标签，限制层级
+                     $("div, p") ----,查询所有div标签或p标签。
+        属性选择器    $("[属性名='值']")
+        表单选择器    $(":radio")   ---等同与$("[type=radio]")
+        筛选器
+                    $(".class名").eq(索引)
+                    $(".class名").first()  第一个
+                    $(".class名").last()    最后一个
+                    $(".class名").even()    拿奇数
+                    $(".class名").odd()      拿偶数
+
+    2、绑定事件：
+        dom.on事件=function(){
+        //this: 当前事件触发标签
+        }
+        jquery对象.事件(function(){
+        //$(this):当前事件触发标签
+        })
+
+    3、each循环序列
+        1、循环数据
+            $.each(数据源,function(i,j){
+                console.log(i,j)
+                })
+            注:数据源如果是数组，则i和j分别是索引和对应数据，如果是obj对象，则i和j分别是key和value
+        2、循环标签
+            $(function () {
+                $("div").each(function () {
+                    console.log($(this).html()) //循环的每一个div标签
+                })
+            })
+
+    4、操作标签
+        1、文本控制：
+            $("标签").html("<a href>xxx</a>")
+            $("标签").text("<a href>xxx</a>")
+
+        2、属性控制
+            attr(属性名称)
+            attr(属性名称,属性值)
+            remoteAttr()
+
+            input、textarea、select 仅这三个标签有val方法。

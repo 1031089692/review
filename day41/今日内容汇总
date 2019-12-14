@@ -1,0 +1,66 @@
+今日内容:
+    ORM:object relation mapping
+    models与sql的映射关系
+        类-----表
+        类属性-----表字段
+        类对象-----表记录
+
+    新的数据类型:QuerySet
+
+    orm增删改查
+
+    单表查询：
+        queryset
+        1、 all():调用者:ibjects管理器 返回queryset
+        2、filler():调用者:ibjects管理器 返回queryset
+        3、get():调用者:ibjects管理器 返回查询到的model对象(注意：查询结果有切只有一个才执行)----不常用
+        4、first(),last():queryset调用 返回model对象
+        5、exclude():调用者:ibjects管理器 返回queryset
+        6、order_by():由queryset对象调用 返回queryset
+        7、count: queryset对象调用 返回int
+        8、reverse(): 由queryset对象调用，返回值是queryset
+        9、exists(): 由queryset对象调用， 返回值是布尔值
+        10、values()方法： 由queryset对象调用，返回值是queryset
+        11、values_list():由queryset对象调用，返回值是queryset
+        12、distinct():由queryset对象调用，返回值是queryset
+
+
+    模糊查询:
+        1、> < =
+            例: a = Order.objects.filter(price=20)---查询价格等于20的订单
+            a = Order.objects.filter(price__gt=20)---查询价格大于20的订单
+            a = Order.objects.filter(price__lt=20)---查询价格小于20的订单
+            a = Order.objects.filter(price__gte=20)---查询价格大于等于20的订单
+            a = Order.objects.filter(price__lte=20)---查询价格小于等于20的订单
+        2、 like
+            例: b = Order.objects.filter(title_istartswith='CN').values(order_num)---查询以CN开头的订单号，istartwith不区分大小写
+            ，startwith区分。
+            b = Order.objects.filter(title_contains='CN').values(order_num)---查询包含CN的订单号。
+        3、between、or
+            b = Order.objects.filter(price=[10,200])---查询价格在10-200区间的数据
+            b = ORder.objects.filter(price=[10,20,30])---查询价格要么等于10，要么等于20，要么等于30的数据。
+
+    基于对象的跨表查询(本质子查询)
+
+    基于双下划线的跨表查询(本质join)
+        value:group by字段   annotate:统计字段
+        1、基本写法:a = Order.objects.filter(条件,等同where).values("表名__字段"这里等同与select)
+    分组查询(难点)
+        1、基本写法:b = Customer.objects.values('name').annotate(order_count=Count('order__oid'))
+        优化版本1:b1 = Customer.objects.all().annotate(order_count=Count('order__oid')).values('name', 'order_count')
+        优化版本2:b2 = Customer.objects.annotate(order_count=Count('order__oid')).values('name', 'order_count')
+    分组后过滤(having)
+        c = Customer.objects.annotate(c=Count('order')).filter(c__gt=1).values('address')---这里的filter相当于having
+
+    F与Q
+        F:
+        # 查询order表字段a大于字段b的所有数据
+        d = Order.objects.filter(字段a__gt=F('字段b'))      # 如果是a大于b的2倍。则在字段b的后面价格x2 ('字段b')x2
+        # 更新a字段数据。如a字段+100
+        d = Order.objects.filter(字段a=100+F('字段a'))
+
+        Q:
+        1、查询order表字段a大于100或者字段b大于100
+        d = Order.objects.filter(Q(字段a__gt=100)|Q(字段b__gt=100))    # |表示或  &表示且   ～表示非
+
+

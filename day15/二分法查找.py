@@ -10,7 +10,7 @@
 # while left < right:  # 边界,当右边比左边还小的时候退出循环(这里比较的是索引。当左边界不小于右边界，代表已经重合，即比较完毕)
 #     mid = (left + right) // 2  # 必须是整除,索引没有小数
 #     if lst[mid] > n:
-#         right = mid - 1
+#                right = mid - 1
 #     if lst[mid] < n:
 #         left = mid + 1
 #     if lst[mid] == n:

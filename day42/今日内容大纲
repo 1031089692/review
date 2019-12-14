@@ -1,0 +1,24 @@
+本阶段内容
+
+    1、Ajax:
+        特点:
+            1、异步
+            2、局部刷新
+
+    2、js 序列化和反序列化
+        1、序列化 JSON.stringify()   等同与python json.dumps   --字典转json   js即obj对象转json
+        2、反序列化 JSON.parse()   等同与python json.loads     --json转字典    js即json转obj对象
+
+    3、jquery的each循环序列
+        1、循环数据
+            $.each(数据源,funchtion(i,j){
+                console.log(i,j)
+                })
+            注:数据源如果是数组，则i和j分别是索引和对应数据，如果是obj对象，则i和j分别是key和value
+        2、循环标签
+            $(function () {
+                $("div").each(function () {
+                    console.log($(this).html()) //循环的每一个div标签
+                })
+            })
+    4、

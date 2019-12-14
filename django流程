@@ -1,0 +1,18 @@
+1、服务器发起请求
+    Django：
+        1、wsgi拿到请求，1、封装socket。2、按照http协议进行解包。
+        2、解包之后的数据给所有中间件按顺序执行一遍。(如果中间件返回HttpResponse,则直接返回，不走下面的流程)
+        3、中间件执行完成之后把url由路由分发给对应的视图函数
+        4、视图函数进行逻辑处理。如果逻辑跟数据库数据有交互，则会调用model进行操作。然后
+        把响应数据给templates，渲染。
+        5、把响应数据给中间件执行(中间件请求和响应执行顺序跟栈一样)
+        6、中间件执行完成之后。wsgi按着http协议封装响应数据。给游览器。自此结束。
+
+
+2、 CBV：
+    1、url：    path('login/', views.xxxxxx.as_view()),
+         请求到url时。使用自定义类的类方法去调用as_view()
+         as_view里面第一个view方法的cls指xxxxx本身，赋值的self也就是xxx
+         然后return的dispatch方法。如果xxxx本身没有定义dispatch方法，那么就
+         从父类view里面找dispatch，该方法判断了一下request的请求类型，然后用
+         反射做了一个请求分发。

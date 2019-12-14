@@ -1,4 +1,4 @@
-django路由
+django路由:
     路由分组：通过正则，然后分组。----re_path
     路由分发：通过全局url。指定各app的url路径。然后从各app的url指定对应view路径。
     路由反向解析:
@@ -10,3 +10,22 @@ django路由
             起别名情况:给对应的url起别名。然后针对html做对应优化。如login的form的表单的action，数据改成action="{% url '别名' %}"
             然后以后我们无论怎么修改页面的路径，就只需要在url里面修改route参数，html中则不需要修改。因为如果html中有别名，在渲染的
             时候会通过html的别名找到url中对应的别名。拿到route。替换掉之前的"{% url '别名' %}",这样就能正常访问了。
+
+
+django视图:
+    django response有三种形式
+        1、HttpResponse('字符串')
+        2、render("页面")
+            ---1、读取文件字符串
+            ---2、渲染变量
+                {{}}---渲染变量
+                    1、深度查询:句点符 . 如果render是一个列表、字典或者对象。想要查询具体的数据，则通过.来实现深度查询
+                    2、fifter:过滤器{{var|filter_name:参数}}
+                {%%}---渲染标签
+                    for 循环标签
+                    if 标签
+        3、redirect()
+            重定向
+
+    模版继承:
+
