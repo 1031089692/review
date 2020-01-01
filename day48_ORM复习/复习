@@ -1,0 +1,9 @@
+ORM:
+    1、单表操作:
+        pass
+    2、多表操作:
+        pass
+    3、分组查询统计:
+        1、查询每一个作者的名字以及出版书籍的最高价格
+        Author.objects.annotate(max_price=MAX("book__price")).values("name", "max_price")
+        2、查询96年以后出生的每一个作者的名字以及出版书籍的最高价

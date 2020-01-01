@@ -1,0 +1,25 @@
+1、装饰器：
+
+
+2、自定义过滤器和标签
+    1、在settings中的INSTALLED_APPS配置当前app，不然django无法找到自定义的simple_tag
+    2、在app中创建templatetags模块(模块名只能是templatetags)
+    3、创建任意.py文件。如my_tags.py
+        form django import template
+        from django.utils.safestring import mark_safe
+
+        register = template.Library（） #register的名字是固定的，不可改变
+
+        @register.filter
+        def filter_multi(v1,v2):
+            return v1*v2
+    4、在对应html文件中带入之前创建的my_tags.py
+        {% load my_tags %}
+    5、使用
+       在模板中：   # num=12
+        {{ num|filter_multi:2}}   #24
+
+        *这是过滤器的使用方法，标签完全一样，就是@register.filter改成@register.simple_tag即可
+
+
+3、

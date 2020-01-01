@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+    {{ msg }}
+    <div v-text="msg"></div>
+    <div v-html="msg"></div>
+</div>
+
+<script>
+    new  Vue({
+        el: '#app',
+        data(){
+            // data中是一个函数，函数中return一个对象，可以是空对象，但是不能不return
+            return {
+                msg:"<h2>john</h2>"
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

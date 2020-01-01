@@ -1,0 +1,36 @@
+1、定义变量
+    var 定义的全局，可以重复声明
+    let 定义的局部，不能重复声明
+    const 定义的局部，不能重复声明，且只声明常量(不可变)
+
+2、模板字符串
+let name = '而已';
+let str ='我是${name}'
+
+3、箭头函数
+    function(){} === ()=>{}  this的指向发生了改变
+
+
+4、对象的使用
+    var person = {
+        name : 'aabb',
+        fav2:function(){
+            //this指向person
+        },
+        fav:()=>{
+            //this指向了定义了person对象的父类
+        }
+        showName(){
+            //this指向了person
+        }
+    }
+
+5、类----跟python大同小异
+    class Person{
+        constructor(name){
+            this.name = name;
+        }
+        fav(){
+        //
+        }
+    }
