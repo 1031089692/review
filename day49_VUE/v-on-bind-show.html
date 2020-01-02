@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+        .active{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div v-text="msg"></div>
+    <div v-html="msg"></div>
+    <button v-on:click ="handlerClick">隐藏</button>
+    <div class="box" v-show="isShow"></div>
+    <img v-bind:src="imgSrc" >
+    <div class="box" v-bind:class = '{active:isactive}'></div>
+
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    // v-bind可以简写为:     v-on可以简写为@
+    new  Vue({
+        el: '#app',
+        data(){
+            // data中是一个函数，函数中return一个对象。
+            return {
+                msg:"<h2>john</h2>",
+                isShow: true,
+                imgSrc:'1.png',
+                isactive:true,
+            }
+        },
+        methods:{         //这里是methods 有个s
+            handlerClick(){
+                console.log(this);
+                this.isShow = !this.isShow;
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
