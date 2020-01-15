@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编程式导航</title>
+</head>
+<body>
+<div id="app"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script>
+    // 对比前面的声明式导航
+
+    const Home = {
+        data(){
+            return{}
+        },
+        template:`<div>这是首页</div>`
+    };
+
+    const User = {
+        data(){
+            return{
+                user_id:null
+            }
+        },
+        template:`<div>这是用户{{user_id}}
+                    <button @click="clickHandler">跳转首页</button></div>`,
+        // created(){
+        //     console.log(this.$route)   //路由信息对象
+        // }
+        methods:{
+          clickHandler(){
+              this.$router.push({name:"Home"})   //路由push
+          }
+        },
+        watch:{
+            '$route'(to,from){
+                this.user_id = to.params.id
+            }
+        }
+    };
+
+    // 创建路由
+    const router = new VueRouter({
+        // 定义路由规则,类似django的urls
+        // mode:'history',
+        routes:[
+            {path:'/user/:id',component:User,name:'User'},
+            {path:'/home',component:Home, name:'Home'}
+        ]
+    });
+
+    let App = {
+        data(){
+            return{}
+        },
+        // router-link 和 router-view 是vue-router提供的两个全局组件，router-view是路由组件的出口,
+        template: `<div>
+                        <div class="header">
+                        <router-link :to="{name:'User',params:{id:1}}">用户1</router-link>
+                        <router-link :to="{name:'User',params:{id:2}}">用户2</router-link>
+                        </div>
+                        <router-view></router-view>
+                    </div>`
+
+    };
+
+        new Vue({
+        el:'#app',
+        //挂载,路由对象
+        router,
+        data(){
+            return{}
+        },
+        template:'<App />',
+        components:{
+            App
+        }
+    });
+</script>
+</body>
+</html>

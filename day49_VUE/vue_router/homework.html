@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homework</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <style>
+        #test{
+            width: max-content;
+            height: 30px;
+        }
+        .header{
+            width: max-content;
+            height: 200px;
+        }
+        .item{
+            margin:  50px;
+            padding: 50px;
+            text-decoration: none;
+            color: #3c8dff;
+        }
+        .item:hover{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="test"></div>
+    <div id="app"></div>
+
+<script>
+    const Index = {
+        data(){
+            return{}
+        },
+        template:`<div>response</div>`,
+        methods:{
+            //
+        },
+        created(){
+            $.ajax({
+                url:"https://testapi.yourgenex.com/client/index/index",
+                type:"get",
+                success:function (response) {
+                    var res = JSON.parse(response);
+                    res = res.data
+
+                }
+            })
+        }
+    };
+    const PaidCourses = {
+        data(){
+            return{}
+        },
+        template:`<div>付费课程数据</div>`
+    };
+    const FreeCourse = {
+        data(){
+            return{}
+        },
+        template:`<div>免费课程数据</div>`
+    };
+    const Other = {
+        data(){
+            return{}
+        },
+        template:`<div>其他数据</div>`
+    };
+
+    const router = new VueRouter({
+            routes:[
+                {path:'/index',component:Index,name:'Index'},
+                {path:'/PaidCourses',component:PaidCourses,name:'PaidCourses'},
+                {path:'/FreeCourse',component:FreeCourse,name:'FreeCourse'},
+                {path:'/Other',component:Other,name:'Other'},
+            ]
+    });
+
+    let App={
+        data(){
+            return{}
+        },
+        template: `<div>
+                    <div class="header">
+                        <router-link :to="{name:'Index'}" class="item">首页</router-link>
+                        <router-link :to="{name:'PaidCourses'}" class="item">付费课程</router-link>
+                        <router-link :to="{name:'FreeCourse'}" class="item">免费课程</router-link>
+                        <router-link :to="{name:'Other'}" class="item">其他</router-link>
+                    </div>
+                    <div class="container" id="container">
+                        <router-view></router-view>
+                    </div>
+                    </div>`
+    };
+
+    new  Vue({
+        el:'#app',
+        router,
+        data(){
+            return{}
+        },
+        template:'<App />',
+        components:{ App }
+    });
+
+</script>
+</body>
+</html>

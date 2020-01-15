@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery.js"></script>
+</head>
+<body>
+    <div>
+        <button id="con">按钮</button>
+        <button><span id="test">0</span></button>
+    </div>
+
+
+    <script>
+        var count= 0;
+        var res =$("#test").val();
+        $("#con").click(function () {
+            count = count+1;
+            $('#test').text(count)
+        })
+
+    </script>
+</body>
+</html>

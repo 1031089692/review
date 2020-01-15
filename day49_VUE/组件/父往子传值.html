@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Title</title>
+</head>
+<body>
+    <div id="app"></div>
+
+
+    <script>
+        let Vheader = {
+            data(){
+                return{
+
+                }
+            },
+            //1、子组件中声明,声明后就可以在子组件中使用
+            props:['msg','post'],
+            template:'<div>' +
+                '<h4>{{msg}}</h4>' +
+                    '<h2>{{post.title}}</h2>'+
+                '</div>'
+        };
+
+        let App = {
+            data(){
+                return{
+                    text:"测试",
+                    post:{
+                        title:"This is demo",
+                        id : 1
+                    }
+
+                }
+            },
+            //2、从父组件传值给子组件需要自定义属性。如下面的msg。与子组件的props保持一致
+            template:`<div id="j"><h2>{{text}}</h2><Vheader :post = 'post'></Vheader></div>`,
+            components:{
+                Vheader
+            }
+        };
+
+        new Vue({
+            el:"#app",
+            data(){
+                return{
+                    msg:'john'
+                }
+            },
+            template: `<div class="app"><App /></div>`,
+            components:{
+                App
+            }
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Title</title>
+</head>
+<body>
+    <div id="app"></div>
+
+
+    <script>
+        //1、声明局部组件
+        let App = {
+            data(){
+                return{
+                    text:"测试"
+                }
+            },
+            template:`<div id="j"><h2>{{text}}</h2></div>`
+        };
+
+        new Vue({
+            el:"#app",
+            data(){
+                return{
+                    msg:'john'
+                }
+            },
+            //3、使用
+            template: `<div class="app"><App /></div>`,
+            components:{
+                // 2、挂载
+                App
+            }
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue_router</title>
+</head>
+<body>
+<div id="app"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script>
+    const Home = {
+        data(){
+            return{}
+        },
+        template:`<div>这是首页</div>`
+    };
+
+    const Course = {
+        data(){
+            return{}
+        },
+        template:`<div>这是课程页面</div>`
+    };
+
+    // 创建路由
+    const router = new VueRouter({
+        // 定义路由规则,类似django的urls
+        // mode:'history',
+        routes:[
+            {path:'/',redirect:'/home'},
+            {path:'/home',component:Home,name:'Home'},
+            {path:'/course', component:Course}
+        ]
+    });
+
+    let App = {
+        data(){
+            return{}
+        },
+        // router-link 和 router-view 是vue-router提供的两个全局组件，router-view是路由组件的出口,
+        // 命名路由
+        template: `<div><div class="header">
+                        <router-link :to="{name:'Home'}">首页</router-link>
+                        <router-link to="/course">免费课程</router-link>
+                    </div>
+                    <router-view></router-view>
+                    </div>`
+
+    };
+
+        new Vue({
+        el:'#app',
+        //挂载,路由对象
+        router,
+        data(){
+            return{}
+        },
+        template:'<App />',
+        components:{
+            App
+        }
+    });
+</script>
+</body>
+</html>
