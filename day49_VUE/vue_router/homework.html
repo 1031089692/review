@@ -17,7 +17,7 @@
         }
         .item{
             margin:  50px;
-            padding: 50px;
+            padding: 10px;
             text-decoration: none;
             color: #3c8dff;
         }
@@ -33,9 +33,9 @@
 <script>
     const Index = {
         data(){
-            return{}
+            return{res:null}
         },
-        template:`<div>response</div>`,
+        template:`<div><span>{{res}}</span></div>`,
         methods:{
             //
         },
@@ -44,9 +44,12 @@
                 url:"https://testapi.yourgenex.com/client/index/index",
                 type:"get",
                 success:function (response) {
-                    var res = JSON.parse(response);
-                    res = res.data
-
+                    this.res=response.data.note;
+                    console.log(response.data.note);
+                    for (let key in this.res){
+                        console.log(this.res[key]);
+                        this.res = this.res[key]
+                    }
                 }
             })
         }
