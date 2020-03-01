@@ -1,0 +1,31 @@
+Vue的基本用法(入门级)
+    模板语法{{}} 与django中提供的模板语法冲突，django模板语法可以关闭
+    指令系统：
+        v-text v-html v-show和v-if v-bing和v-on v-for v-model双向数据绑定
+    Vue中常用属性：
+        data:function(){}
+        el
+        methods
+        watch
+        computed
+        template
+    Vue中的常用方法
+        钩子函数
+    Vue的过滤器
+        局部和全局的过滤器
+    Vue的组件
+        全局组件
+            Vue.component('组件名',{})
+        局部组件
+            声明、挂载、使用
+        组件之间的传值
+            父->子
+            子->父
+            平行组件之间的传值
+    Vue的全家桶(vue+vue-router+vuex)  主要你用来做SPA(Single Page Application)
+
+-----------
+    refs的使用
+    <div ref='john'>aaa</div>
+    this.$refs.alex   # 即可拿到dom对象
+
