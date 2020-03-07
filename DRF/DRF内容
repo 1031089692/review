@@ -1,0 +1,7 @@
+1、DRF的用户认证
+    源码从dispath开始：
+        1、执行initialize_request方法，封装原生request。封装之后的request除了包含原生的request，还增加了authenticators(认证类的对象)等数据
+        2、执行initial方法：
+            initial方法中的perform_authentication(request)方法进行验证。----该方法执行了request.uesr--->这里的request是值封装之后的
+                request的user里面执行了_authenticate()方法
+                    最终_authenticate()循环认证所有对象authenticators，如果报错，抛出异常

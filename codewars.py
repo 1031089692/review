@@ -19,7 +19,7 @@ def count_bits(n):
     print(n)
     count = 0
     for i in n:
-        if i == '1':
+        if i == '':
             count += 1
         else:
             pass
