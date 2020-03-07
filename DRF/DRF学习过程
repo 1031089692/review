@@ -1,0 +1,51 @@
+1、基础复习
+    1、super的使用
+    2、CBV内部实现机制是反射。---复习下反射
+    3、复习下面向对象三大特性
+        1、封装：
+            封装可以分为两种：
+                1、把多个方法封装到类中
+                2、通过构造方法将数据封装到对象中
+        2、继承：
+            多个类有相同的属性和方法时，可以直接提取到基类中实现。
+            多继承-顺序
+            广度优先和深度优先
+            经典类和新式类
+        3、多态：
+
+    4、django的中间件的五个方法。
+        - process_request
+        - process_view---该中间件实现对csrf_token的处理。(至于为什么要用该中间件，是因为process_view时流程才到视图函数，才知道视图函数是否有免除认证的装饰器)
+        - process_response
+        - process_exception
+        - process_render_template
+        常用区域：权限、登陆认证、及实现Django的csrf(process_view方法检查视图是否有装饰器@csrf_exempt(免除csrf认证),去请求体或cookie中获取token)
+        如果是CBV,则不能直接在方法前面写@csrf_exempt，需先导入'from django.utils.decorators import method_decorator'
+            然后在方法前面写@method_decorator(csrf_exempt)
+
+    5、restful规范
+        1、协议规范：使用https代替http
+        2、域名规范：https://xxxx.xxx/api/ ----减少跨域
+        3、版本规范：https://xxxx.xxx/v1/
+        4、路径规范：https://xxx.xxx.xx/v1/orders 使用名词，且用'-'代替'_'提高可读性
+        5、方法规范：get/post/put/delete方法区分，拒绝post一把梭
+        6、url规范：https://xx.xxxxx.xx/v1/orders?user_id=666  url传递参数
+        7、状态码规范：ok返回2开头的具体状态码。重定向返回3开头的具体状态码，客户端问题返回4开头的具体状态吗。服务端问题返回5开头的具体状态码(拒绝500一把梭)
+        8、接口异常处理规范：{'status':50x,'error':xxxxx} 返回具体错误信息，error为key
+        9、返回结果规范：
+            GET /collection：返回资源对象的列表（数组）
+            GET /collection/resource：返回单个资源对象
+            POST /collection：返回新生成的资源对象
+            PUT /collection/resource：返回完整的资源对象
+            PATCH /collection/resource：返回完整的资源对象
+            DELETE /collection/resource：返回一个空文档
+        10、Hypermedia规范：接口返回结果中提供链接，连向其他API方法。
+
+    Django请求生命周期以及包含了restframework框架的请求声明周期---主要是CBV的dispath反射和普通函数式编程的流程区别
+
+
+2、DRF
+    1、APIView之认证:authentication_classes
+
+
+    2、认证梳理
