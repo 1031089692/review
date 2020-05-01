@@ -1,0 +1,39 @@
+1、生命周期函数
+-----创建周期
+1、创建Vue实例
+2、执行beforeCreate方法， 之后data和methods中的数据初始化
+3、执行create方法
+4、开始进行模板编译，在内存中渲染模板(未挂载)
+5、执行beforeMount方法，此时内存中模板渲染完成。(此时页面的模板字符串还未被替换)
+6、将内存中编译好的模板，替换到游览器中的页面。
+7、执行mounted方法，执行完该方法，表示Vue实例已经初始化完毕了
+------运行周期(该周期的方法会根据data数据的改变，选择性的触发0次到多次 )
+8、beforeUpdate()执行该方法时，页面数据还是旧的，data数据时最新的。尚未同步。
+9、接下来根据data中最新的数据，在内存中，重新渲染一份最新的内存DOM树，且渲染到页面，完成data(model)层到view(视图层)的更新
+10、执行updated()方法时，页面也data数据已经保持同步了，都是最新的
+-------销毁周期
+11、执行beforeDestoory()方法时，所有的数据和方法都处于可用状态，还没有执行销毁
+12、执行destroyed()方法时，所有的数据和方法都不可用，已经销毁。
+
+
+vue中的渐变
+    1、使用transition标签把只要被动画控制的元素，包起来
+    2、设置样式
+        .v-enter,
+        .v-enter-to{
+            opacity:0;   # 开始和结束的状态
+        }
+
+        .v-enter-active,
+        .v-leave-active{
+            transition: all 0.4s ease    # 设置0。4s渐变出来
+        }
+
+
+vue中使用import代替link、script标签引入css和js
+
+vue中利用axios拦截器和css3设置loading样式。如果有多个请求。设置一个全局函数，所有需要的请求都走这个函数，通过这个函数来控制loading。
+
+v-for中的key的作用是增加唯一标识符，可以高效的更新虚拟dom
+
+

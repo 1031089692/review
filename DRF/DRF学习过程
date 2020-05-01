@@ -11,8 +11,20 @@
             多继承-顺序
             广度优先和深度优先
             经典类和新式类
+            drf里面视图就是继承的apiview，而apiview又是继承的view
         3、多态：
-
+            鸭子模型：如下。func函数里面arg参数在不同情况下，arg.send()也就多种形态。
+            举例"
+            class User：
+                def send()：
+                    pass
+            class Pwd：
+                def send()：
+                    pass
+            obj = Pwd()
+            def func(arg):
+                arg.send()
+            func(obj)
     4、django的中间件的五个方法。
         - process_request
         - process_view---该中间件实现对csrf_token的处理。(至于为什么要用该中间件，是因为process_view时流程才到视图函数，才知道视图函数是否有免除认证的装饰器)
@@ -49,3 +61,27 @@
 
 
     2、认证梳理
+
+
+    3、权限组件
+
+
+    4、限制访问频率
+
+
+3、 drf
+    1、版本*
+    2、解析器*
+        在view类里面加一句 parser_classes=[JSONParser,FormParser,]    然后request.data则可以拿到请求数据
+        or 直接在setting里面的REST_FRAMEWORK ={
+        "DEFAULT_PARSER_CLASSES":['rest_framework.parsers.JSONParser','rest_framework.parsers.FormParser']
+        }
+    3、序列化****
+        部分总结：P41
+            1、写类
+            2、字段
+            3、
+    4、分页**
+    5、路由**
+    6、视图**
+    7、渲染器*

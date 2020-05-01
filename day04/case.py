@@ -55,9 +55,9 @@
 # hobby = input("请输入爱好")
 # print("敬爱可亲的{}最喜欢在{}{}".format(name, location, hobby))
 
-lst2 = ["鱼", "肉", "鸡", "鸭", "兔"]
-lst = []
-for i in lst2:
-    lst.append(i)
-for j in lst:
-    lst2.remove(j)
+# lst2 = ["鱼", "肉", "鸡", "鸭", "兔"]
+# lst = []
+# for i in lst2:
+#     lst.append(i)
+# for j in lst:
+#     lst2.remove(j)

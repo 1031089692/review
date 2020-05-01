@@ -1,0 +1,13 @@
+CSS常用
+
+1、标签左右上下居中
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+
+
+2、去除a标签底部线条
+    text-decoration: none;
+
+3、html中style标签多个属性用;隔开
